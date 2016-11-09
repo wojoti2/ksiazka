@@ -1,5 +1,5 @@
 public class Ksiazka {
-	private int rok, wydanie, id;
+	private int rok, wydanie, id;aaaaa
 	private String tytul;
 	private String autor;
 
