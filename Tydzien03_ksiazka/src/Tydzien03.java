@@ -6,27 +6,18 @@ import javax.swing.JOptionPane;
 public class Tydzien03 {
 
 	public static void main(String[] args) {
-		int d = 1;
-
 		// String txt1 = JOptionPane.showInputDialog("Okresl rozmiar ksiazki");
 		// int n = Integer.parseInt(txt1);//deklaracja rozmiaru ksiazki
-		ArrayList<Ksiazka> ksiazka = new ArrayList<Ksiazka>();// deklaracja
-																// ksiazki, tak
-																// samo jakby to
-																// byla atblica
-		// dodawanie elementow, kazda ksiazke trzeba wpisac recznie,osobno
-
-		/*
-		 * for (int i = 0; i < ksiazka.size(); i++) { String int2 =
-		 * JOptionPane.showInputDialog("Wprowadz rok"); String int3 =
-		 * JOptionPane.showInputDialog("Wprowadz wydanie"); String txt2 =
-		 * JOptionPane.showInputDialog("Wprowadz tytul"); String txt3 =
-		 * JOptionPane.showInputDialog("Wprowadz autora"); int y =
-		 * Integer.parseInt(int2); int z = Integer.parseInt(int3); ksiazka[i] =
-		 * ksiazka.add(new Ksiazka(i, y, z, txt2, txt3)); //taka konstrukcja jak linie wyzej
-		 * jest mozliwa dzieki konstruktorowi //i-id generowane
-		 * automatycznie,y-rok,z-nr wydania,txt2-tytul,txt3-autor }
-		 */
+		ArrayList<Ksiazka> ksiazka = new ArrayList<Ksiazka>();
+		
+		 /* for (int i = 0; i < ksiazka.size(); i++) { 
+		  String int2 = JOptionPane.showInputDialog("Wprowadz rok"); 
+		  String int3 = JOptionPane.showInputDialog("Wprowadz wydanie"); 
+		  String txt2 = JOptionPane.showInputDialog("Wprowadz tytul"); 
+		  String txt3 = JOptionPane.showInputDialog("Wprowadz autora"); 
+		  int y = Integer.parseInt(int2); int z = Integer.parseInt(int3);
+		  ksiazka.add(new Ksiazka(i, y, z, txt2, txt3));*/
+		 
 
 		// ustalone odgornie wartosci do testow
 		ksiazka.add(new Ksiazka(0, 11, 11, "txt23", "txt33"));
@@ -39,9 +30,9 @@ public class Tydzien03 {
 		for (int i = 0; i < ksiazka.size(); i++)
 			System.out.println(ksiazka.get(i));
 
-		while (d == 1) {
+		while (true) {
 			String s1 = JOptionPane
-					.showInputDialog("Co chcesz zrobic: 1)Posortowac 2)Zmienic dany element w danym wpisie");
+					.showInputDialog("Co chcesz zrobic: 1)Posortowac 2)Zmienic/usunac dany element w danym wpisie");
 			int ss1 = Integer.parseInt(s1);
 			switch (ss1) {// switch w celu wybrania opcji co chcemy zrobic,
 							// obecnie zbedny bo nie ma opcji 2
@@ -50,9 +41,7 @@ public class Tydzien03 {
 				int ss2 = Integer.parseInt(s2);
 				switch (ss2) {
 				case 1: {
-					CompRok Rok = new CompRok();// deklaracja nowego komparatora
-												// w celu uzycia go w
-												// arrays.sort
+					CompRok Rok = new CompRok();
 					Collections.sort(ksiazka, Rok);
 					for (int i = 0; i < ksiazka.size(); i++)
 						ksiazka.get(i).setId(i);
@@ -99,7 +88,7 @@ public class Tydzien03 {
 					break;
 				}
 				case 2: {
-					String s4 = JOptionPane.showInputDialog("Wprowadz numer elementu");
+					String s4 = JOptionPane.showInputDialog("Wprowadz ID elementu");
 					int ss4 = Integer.parseInt(s4);
 					String s5 = JOptionPane.showInputDialog("Na co chcesz zmienic?");
 					int ss5 = Integer.parseInt(s5);
@@ -107,14 +96,14 @@ public class Tydzien03 {
 					break;
 				}
 				case 3: {
-					String s4 = JOptionPane.showInputDialog("Wprowadz numer elementu");
+					String s4 = JOptionPane.showInputDialog("Wprowadz ID elementu");
 					int ss4 = Integer.parseInt(s4);
 					String s5 = JOptionPane.showInputDialog("Na co chcesz zmienic?");
 					ksiazka.get(ss4).setTytul(s5);
 					break;
 				}
 				case 4: {
-					String s4 = JOptionPane.showInputDialog("Wprowadz numer elementu");
+					String s4 = JOptionPane.showInputDialog("Wprowadz ID elementu");
 					int ss4 = Integer.parseInt(s4);
 					String s5 = JOptionPane.showInputDialog("Na co chcesz zmienic?");
 					ksiazka.get(ss4).setAutor(s5);
@@ -128,7 +117,7 @@ public class Tydzien03 {
 			for (int i = 0; i < ksiazka.size(); i++)
 				System.out.println(ksiazka.get(i));
 			s1 = JOptionPane.showInputDialog("Czy chcesz zrobic cos jeszcze? 1-tak/2-nie");
-			d = Integer.parseInt(s1);
+			int d = Integer.parseInt(s1);
 			if (d != 1)
 				return;
 		}
